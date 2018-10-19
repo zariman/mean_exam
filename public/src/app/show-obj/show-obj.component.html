@@ -1,0 +1,22 @@
+<div *ngIf="restaurant">
+  <h3>Reviews for {{ restaurant.name }}</h3>
+
+  <button [routerLink]="['/restaurants', restaurant._id, 'review']">New Review</button>
+
+  <table border="1">
+    <tr>
+      <th>Customer</th>
+      <th>Stars</th>
+      <th>Description</th>
+    </tr>
+
+    <tr *ngFor="let item of restaurant.reviews">
+      <td> {{ item.name }} </td>
+      <td> {{ item.stars }} </td>
+      <td> {{ item.review }} </td>
+    </tr>
+  </table>
+
+  <button [routerLink]="['/restaurants']">Back</button>
+
+</div>

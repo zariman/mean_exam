@@ -1,0 +1,12 @@
+<h3>Edit a restaurant</h3>
+
+<div *ngIf="restaurant.errors">
+  <p class="error" *ngFor="let item of restaurant.errors | keyvalue">{{ item.value.message }}</p>
+</div>
+
+<form (submit)="edit()">
+  <p><input type="text" placeholder="Restaurant name" name="name" [(ngModel)]="restaurant.name" /></p>
+  <p><input type="text" placeholder="Type of cuisine" name="cuisine" [(ngModel)]="restaurant.cuisine" /></p>
+  <input type="submit" value="Edit">
+</form>
+<button [routerLink]="['/restaurants']">Cancel</button>

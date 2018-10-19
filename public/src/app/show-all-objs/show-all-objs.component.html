@@ -1,0 +1,21 @@
+<button [routerLink]="['/restaurants','new']">Add Restaurant</button>
+
+<table border="1">
+  <tr>
+    <th>Restaurant</th>
+    <th>Cuisine</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let item of restaurants">
+    <td> {{ item.name }} </td>
+    <td> {{ item.cuisine }} </td>
+    <td>
+      <button [routerLink]="['/restaurants', item._id]">Reviews</button>
+      <button [routerLink]="['/restaurants', item._id, 'edit']">Edit</button>
+      <button [disabled]="isExpired(item.createdAt)" (click)="delete(item._id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
